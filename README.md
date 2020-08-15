@@ -13,6 +13,7 @@ Welcome to Sinatra Pilot Logbook, a simple tool to help you go paperless in keep
 3. Run:
 
     $ rake db:migrate
+    
     $ shotgun
 
 4. Navigate to the local address provided
