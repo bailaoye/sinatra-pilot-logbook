@@ -10,6 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_08_16_172411) do
+
+  create_table "log_entries", force: :cascade do |t|
+    t.date "date"
+    t.string "pilot_in_command"
+    t.string "aircraft_type"
+    t.string "aircraft_rego"
+    t.string "origin"
+    t.string "destination"
+    t.integer "landings"
+    t.string "remarks"
+  end
+
+  create_table "logbooks", force: :cascade do |t|
+    t.string "name"
+    t.integer "max_entries"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+  end
 
 end

@@ -9,5 +9,6 @@ class CreateLogEntries < ActiveRecord::Migration[6.0]
       t.string :destination
       t.integer :landings
       t.string :remarks
+    end
   end
 end
