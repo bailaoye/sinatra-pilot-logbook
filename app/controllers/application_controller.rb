@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  not_found do
+    status 404
+    erb :notfound
+  end
+
   helpers do
     def not_logged_in
       if !logged_in?
