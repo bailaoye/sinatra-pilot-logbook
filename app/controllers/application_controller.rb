@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
   helpers do
     def not_logged_in
       if !logged_in?
-        redirect "/login?error=Please log in to complete action"
+        redirect to "/login?error=Please log in to complete action"
       end
     end
 
