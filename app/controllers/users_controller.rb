@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if !session[:user_id]
       erb :'users/new'
     else
-      redirect to '/log_entries'
+      redirect to '/logbooks'
     end
   end
 
