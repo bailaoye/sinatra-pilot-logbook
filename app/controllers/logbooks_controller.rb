@@ -19,6 +19,7 @@ class LogbooksController < ApplicationController
     else
       redirect to '/'
     end
+  end
 
   post "/logbooks/:id" do
     if logged_in?
@@ -29,6 +30,4 @@ class LogbooksController < ApplicationController
       end
     end
   end
-
-
 end
