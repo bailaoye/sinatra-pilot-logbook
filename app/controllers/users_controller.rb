@@ -3,20 +3,20 @@ class UsersController < ApplicationController
   get '/users/:id' do
     #redirect if not logged in
     if !logged_in?
-      redirect '/failure'
+      redirect to '/logbooks'
     end
     #if user credentials valid, show user page
     @user = User.find(params[:id])
     if !@user.nil? && @user == current_user
       erb :'users/show'
     else
-      redirect '/'
+      redirect to '/logbooks'
     end
   end
 
   get '/signup' do
     if !session[:user_id]
-      erb :'users/new'
+      erb :'users/signup'
     else
       redirect to '/logbooks'
     end
@@ -44,16 +44,16 @@ class UsersController < ApplicationController
     user = User.find_by(:username => params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/logbooks"
+      erb :'users/success'
     else
-      redirect to '/signup'
+      erb :'users/failure'
     end
   end
 
   get '/logout' do
     if session[:user_id] != nil
       session.destroy
-      redirect to '/login'
+      erb :'users/loggedout'
     else
       redirect to '/'
     end

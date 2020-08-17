@@ -1,12 +1,15 @@
-<h1>Your Logbooks</h1>
-<div>
-  <center>
-    <% @logbooks.each do |logbook| %>
-      <%= logbook.name %><br />
-      <%= logbook.max_entries %><br />
-      <a href="/logbooks/<%=logbook.id%>/edit">Edit</a>
-      <br />
-      <br />
-      <% end %>
-  </center>
-</div>
+<center>
+  <h1>Your Logbooks</h1>
+
+  <a href="/logbooks/new">Create New Logbook</a>
+
+  <div>
+      <% @logbooks.each do |logbook| %>
+        <%= logbook.name %><br />
+        <%= logbook.max_entries %><br />
+        <a href="/logbooks/<%=logbook.id%>/edit">Edit</a>
+        <br />
+        <br />
+        <% end %>
+  </div>
+</center>
