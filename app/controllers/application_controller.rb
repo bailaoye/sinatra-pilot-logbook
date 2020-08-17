@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "ilovelogbooks"
+    set :session_secret, "password_security"
   end
 
   get '/' do
@@ -18,12 +18,6 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
-    def not_logged_in
-      if !logged_in?
-        redirect to "/login?error=Please log in to complete action"
-      end
-    end
-
     def logged_in?
       !!session[:user_id]
     end
