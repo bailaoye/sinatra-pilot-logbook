@@ -26,8 +26,18 @@ class LogbooksController < ApplicationController
       @logbook = Logbook.find(params[:id])
     else
       unless Logbook.valid_params?(params)
-        redirect '/logbooks/#{@logbook.id}/edit'
+        redirect to '/logbooks/#{@logbook.id}/edit'
       end
+    end
+  end
+
+  post "/logbooks" do
+    if logged_in?
+      unless Logbook.valid_params?(params)
+        redirect to '/logbooks/new'
+      end
+      Logbook.create(params)
+      redirect to '/logbooks'
     end
   end
 end
