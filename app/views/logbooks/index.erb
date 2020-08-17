@@ -1,0 +1,8 @@
+<div>
+  <center>
+    <% @logbooks.each do |logbook| %>
+      <%= logbook.name %><br />
+      <%= logbook.max_entries %><br />
+      <a href="/logbooks/<%=logbook.id>/edit">Edit<a>
+  </center>
+</div>
