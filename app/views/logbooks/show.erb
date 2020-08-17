@@ -1,0 +1,17 @@
+
+<div>
+  <center>
+    <%= @logbook.name %><br />
+    <%= @logbook.max_entries %> <br />
+
+    <h2>Log Entries</h2>
+    <ul>
+    <% @logbook.log_entries.each do |entry| %>
+      <li><a href="/log_entries/<%=entry.id%>"><%= entry.name %></a></li>
+    <% end%>
+    </ul>
+    <a href="/logbooks/<%=@logbook.id%>/edit">Edit</a>
+    <br />
+    <br />
+  </center>
+</div>
