@@ -1,2 +1,2 @@
-class LogEntriesController < Sinatra::Base
+class LogEntriesController < ApplicationController
 end

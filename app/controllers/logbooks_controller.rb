@@ -1,13 +1,15 @@
-class LogbooksController < Sinatra::Base
+class LogbooksController < ApplicationController
   get "/logbooks" do
-    redirect_if_not_logged_in
     @logbooks = Logbook.all
     erb :'logbooks/index'
   end
 
   get "/logbooks/new" do
-    redirect_if_not_logged_in
-    @error = params[:error]
+    if User.logged_in?
+      erb :'logbooks/new'
+    else
+      redirect to '/'
+    end
   end
 
 end
