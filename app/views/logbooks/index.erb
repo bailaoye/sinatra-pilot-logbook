@@ -5,14 +5,17 @@
 <center>
   <h1>Your Logbooks</h1>
 
-  <a href="/logbooks/new">Create New Logbook</a>
+  <a href="/logbooks/new"><input type="submit" value="Create New Logbook"></a>
 
   <div>
-      <% @logbooks.each do |logbook| %><br>
-        Name: <%= logbook.name %><br>
-        Max Entries: <%= logbook.max_entries %><br>
-        <a href="/logbooks/<%=logbook.id%>/edit">Edit</a>
-        <br>
-        <% end %>
+    <% counter = 0 %>
+    <% @logbooks.each do |logbook| %><br>
+      <h3><%= counter += 1 %></h3>
+      Name: <%= logbook.name %><br>
+      Max Entries: <%= logbook.max_entries %><br>
+      <a href="/logbooks/<%=logbook.id%>/edit"><input type="submit" value="Edit"></a>
+      <a href="/notfound"><input type="submit" value="View"></a>
+      <br>
+    <% end %>
   </div>
 </center>
