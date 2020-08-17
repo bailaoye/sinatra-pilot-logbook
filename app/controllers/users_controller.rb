@@ -1,10 +1,11 @@
 class UsersController < ApplicationController 
 
   get '/users/:id' do
+    #redirect if not logged in
     if !logged_in?
       redirect '/logbooks'
     end
-
+    #if user credentials valid, show user page
     @user = User.find(params[:id])
     if !@user.nil? && @user == current_user
       erb :'users/show'

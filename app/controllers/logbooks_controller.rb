@@ -5,7 +5,7 @@ class LogbooksController < ApplicationController
   end
 
   get "/logbooks/new" do
-    if User.logged_in?
+    if logged_in?
       erb :'logbooks/new'
     else
       redirect to '/'

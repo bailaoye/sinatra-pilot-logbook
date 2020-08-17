@@ -1,0 +1,11 @@
+<div>
+  <center>
+    <h1> User Profile </h1>
+    <p>Welcome, <%= @user.fullname %>
+    <% @user.logbooks.each do |logbook| %>
+      <ul>
+        <li><a href="/logbooks/<%= logbook.id%>"><%= logbook.name %></a></li>
+      </ul>
+    <% end %>
+  </center>
+<div>
