@@ -3,14 +3,14 @@ class UsersController < ApplicationController
   get '/users/:id' do
     #redirect if not logged in
     if !logged_in?
-      redirect '/logbooks'
+      redirect '/failure'
     end
     #if user credentials valid, show user page
     @user = User.find(params[:id])
     if !@user.nil? && @user == current_user
       erb :'users/show'
     else
-      redirect '/logbooks'
+      redirect '/'
     end
   end
 
@@ -33,7 +33,6 @@ class UsersController < ApplicationController
   end
 
   get '/login' do 
-    @error_message = params[:error]
     if !session[:user_id]
       erb :'users/login'
     else
