@@ -2,6 +2,10 @@
   <a href="/"><input type="submit" value="Home"></a>
 </div>
 
+<div align="right">
+  <a href="/logout"><input type="submit" value="Logout"></a>
+</div>
+
 <h1>Edit <%= @logbook.name %></h1>
 
 <form action="/logbooks/<%=@logbook.id %>" method="POST">
