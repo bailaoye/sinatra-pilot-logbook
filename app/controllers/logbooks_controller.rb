@@ -36,6 +36,7 @@ class LogbooksController < ApplicationController
       unless Logbook.valid_params?(params)
         redirect to '/logbooks/new'
       end
+    else
       Logbook.create(params)
       redirect to '/logbooks'
     end

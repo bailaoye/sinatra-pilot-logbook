@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_16_172411) do
+ActiveRecord::Schema.define(version: 2020_08_18_142631) do
 
   create_table "log_entries", force: :cascade do |t|
     t.date "date"
@@ -21,11 +21,13 @@ ActiveRecord::Schema.define(version: 2020_08_16_172411) do
     t.string "destination"
     t.integer "landings"
     t.string "remarks"
+    t.integer "logbook_id"
   end
 
   create_table "logbooks", force: :cascade do |t|
     t.string "name"
     t.integer "max_entries"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

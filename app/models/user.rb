@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :logbook
+  has_many :logbooks
 end
