@@ -1,7 +1,10 @@
 class LogbooksController < ApplicationController
   get "/logbooks" do
-    @logbooks = Logbook.all
-    erb :'logbooks/index'
+    if logged_in?
+      @logbooks = Logbook.all
+      erb :'logbooks/index'
+    else
+      redirect to '/'
   end
 
   get "/logbooks/new" do
