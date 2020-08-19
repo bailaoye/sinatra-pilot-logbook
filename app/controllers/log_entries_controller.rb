@@ -42,5 +42,3 @@ class LogEntriesController < ApplicationController
     redirect to "/log_entries"
   end
 end
-
-end

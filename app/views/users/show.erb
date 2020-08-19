@@ -8,12 +8,13 @@
 
 <div>
   <center>
-    <h1> User Profile </h1>
-    <p>Welcome, <%= @user.fullname %>
+    <h1> Welcome, <%= @user.username %> </h1>
+    <p>Your Logbooks<br>
     <% @user.logbooks.each do |logbook| %>
       <ul>
         <li><a href="/logbooks/<%= logbook.id%>"><%= logbook.name %></a></li>
       </ul>
-    <% end %>
+    <% end %><br><br>
+    <a href="/logbooks/new"><input type="submit" value="Create New Logbook"></a>
   </center>
 <div>
