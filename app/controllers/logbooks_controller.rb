@@ -37,6 +37,6 @@ class LogbooksController < ApplicationController
       redirect to '/logbooks/new'
     end
     Logbook.create(params)
-    redirect to "logbooks"
+    redirect to "/logbooks"
   end
 end
