@@ -1,0 +1,39 @@
+<div align="right">
+  <a href="/"><input type="submit" value="Home"></a>
+</div>
+
+<div align="right">
+  <a href="/logout"><input type="submit" value="Logout"></a>
+</div>
+
+<center>
+  <h1>Edit Log Entry</h1>
+
+  <form action="/log_entries/<%=@entry.id %>/edit" method="POST">
+    <label> Date </label>
+    <input type="date" name="date" value="<%=@entry.date %>"> </br>
+
+    <label> Pilot in Command </label>
+    <input type="text" name="pilot_in_command" value="<%=@entry.pilot_in_command %>"> </br>
+
+    <label> Aircraft Type </label>
+    <input type="text" name="aircraft_type" value="<%=@entry.aircraft_type %>"> </br>
+
+    <label> Aircraft Registration </label>
+    <input type="text" name="aircraft_rego" value="<%=@entry.aircraft_rego %>"> </br>
+
+    <label> Origin </label>
+    <input type="text" name="origin" value="<%=@entry.origin %>"> </br>
+
+    <label> Destination </label>
+    <input type="text" name="destination" value="<%=@entry.destination %>"> </br>
+
+    <label> Number of Landings </label>
+    <input type="text" name="landings" value="<%=@entry.landings %>"> </br>
+
+    <label> Remarks </label>
+    <input type="text" name="remarks" value="<%=@entry.remarks %>"> </br>
+
+    <input type="submit" value="Update">
+  </form>
+</center>
