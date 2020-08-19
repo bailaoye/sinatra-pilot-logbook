@@ -28,5 +28,6 @@ class ApplicationController < Sinatra::Base
 
     def authorized?(logbook)
       current_user.id == logbook.user_id
+    end
   end
 end 
