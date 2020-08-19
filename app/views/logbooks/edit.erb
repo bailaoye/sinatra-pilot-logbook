@@ -6,14 +6,16 @@
   <a href="/logout"><input type="submit" value="Logout"></a>
 </div>
 
-<h1>Edit <%= @logbook.name %></h1>
+<center>
+  <h1>Edit <%= @logbook.name %></h1>
 
-<form action="/logbooks/<%=@logbook.id %>" method="POST">
-  <label> Logbook Name </label>
-  <input type="text" name="name" value="<%=@logbook.name %>"> </br>
+  <form action="/logbooks/<%=@logbook.id %>/edit" method="POST">
+    <label> Logbook Name </label>
+    <input type="text" name="name" value="<%=@logbook.name %>"> </br>
 
-  <label> Maximum Number of Entries </label>
-  <input type="number" name="max_entries" value="<%=@logbook.capacity %>"> </br>
+    <label> Maximum Number of Entries </label>
+    <input type="number" name="max_entries" value="<%=@logbook.max_entries %>"> </br>
 
-  <input type="submit" value="Update">
-</form>
+    <input type="submit" value="Update">
+  </form>
+</center>

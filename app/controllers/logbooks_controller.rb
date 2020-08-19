@@ -22,23 +22,17 @@ class LogbooksController < ApplicationController
   end
 
   post "/logbooks/:id" do
-    if logged_in?
-      @logbook = Logbook.find(params[:id])
-    else
-      unless Logbook.valid_params?(params)
-        redirect to '/logbooks/#{@logbook.id}/edit'
-      end
+    unless Logbook.valid_params?(params)
+      redirect to '/logbooks/#{@logbook.id}/edit'
     end
+    @logbook.update(params.select{|k|k=='name' || k=='max_entries'})
   end
 
   post "/logbooks" do
-    if logged_in?
-      unless Logbook.valid_params?(params)
-        redirect to '/logbooks/new'
-      end
-    else
-      Logbook.create(params)
-      redirect to '/logbooks'
+    unless Logbook.valid_params?(params)
+      redirect to '/logbooks/new'
     end
+    Logbook.create(params)
+    redirect to "logbooks"
   end
 end
