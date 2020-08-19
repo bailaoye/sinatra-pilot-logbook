@@ -5,6 +5,7 @@ class LogbooksController < ApplicationController
       erb :'logbooks/index'
     else
       redirect to '/'
+    end
   end
 
   get "/logbooks/new" do
