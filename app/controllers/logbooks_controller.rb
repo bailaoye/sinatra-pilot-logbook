@@ -25,6 +25,7 @@ class LogbooksController < ApplicationController
       @user = current_user
       if Logbook.valid_params?(params)
         Logbook.create(params)
+        redirect "/logbooks/#{@logbook.id}"
       else
         redirect '/logbooks/new'
       end
@@ -45,9 +46,8 @@ class LogbooksController < ApplicationController
       redirect '/login'
     else
       @logbook = Logbook.find_by_id(params[:id])
-      if @logbook == nil
-        redirect 'users/show'
-      elsif authorized?(@logbook)
+      @user = current_user
+      if @user.id == @logbook.user_id
         erb :'/logbooks/edit'
       else
         redirect '/logout'
@@ -70,7 +70,7 @@ class LogbooksController < ApplicationController
 
   delete '/logbooks/:id' do
     @logbook = Logbook.find_by_id(params[:id])
-    @user = current_user
+    @user = current_user # may change to use authorized? method
     if @user.id == @logbook.user_id
       @logbook.delete
       redirect '/users/show'

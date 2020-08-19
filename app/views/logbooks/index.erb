@@ -1,3 +1,5 @@
+#FOR DEBUGGING, REMOVE THIS VIEW BEFORE FINALIZING
+
 <div align="right">
   <a href="/"><input type="submit" value="Home"></a>
 </div>
@@ -7,7 +9,7 @@
 </div>
 
 <center>
-  <h1>Your Logbooks</h1>
+  <h1>All Logbooks</h1>
 
   <a href="/logbooks/new"><input type="submit" value="Create New Logbook"></a>
 
@@ -17,8 +19,10 @@
       <h3><%= counter += 1 %></h3>
       Name: <%= logbook.name %><br>
       Max Entries: <%= logbook.max_entries %><br>
+      Logbook ID: <%= logbook.id %><br>
+
       <a href="/logbooks/<%=logbook.id%>/edit"><input type="submit" value="Edit"></a>
-      <a href="/notfound"><input type="submit" value="View"></a>
+      <a href="/logbooks/<%= logbook.id%>"><input type="submit" value="View"></a>
       <br>
     <% end %>
   </div>
