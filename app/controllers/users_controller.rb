@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if !@user.nil? && @user == current_user
       erb :'users/show'
     else
-      redirect '/logbooks'
+      redirect '/'
     end
   end
 
@@ -36,7 +36,6 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'users/login'
     else
-      @user = current_user
       erb :'users/show'
     end
   end

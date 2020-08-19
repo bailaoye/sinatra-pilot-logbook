@@ -37,7 +37,12 @@ class LogbooksController < ApplicationController
       redirect '/login'
     else
       @logbook = Logbook.find_by_id(params[:id])
-      erb :'logbooks/show'
+      @user = current_user
+      if @user.id == @logbook.user_id
+        erb :'/logbooks/show'
+      else
+        redirect '/logout'
+      end
     end
   end
 
