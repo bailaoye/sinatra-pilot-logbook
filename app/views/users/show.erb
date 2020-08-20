@@ -12,9 +12,7 @@
     <p>Your User ID: <%= @user.id %><br>
     <p>Your Logbooks<br>
     <% @user.logbooks.each do |logbook| %>
-      <ul>
-        <li><a href="/logbooks/<%= logbook.id%>"><%= logbook.name %></a></li>
-      </ul>
+      <p><%= logbook.name %>
     <% end %><br><br>
     <a href="/logbooks/new"><input type="submit" value="Create New Logbook"></a>
   </center>

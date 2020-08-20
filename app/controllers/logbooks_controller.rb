@@ -13,7 +13,6 @@ class LogbooksController < ApplicationController
     if !logged_in?
       redirect '/login'
     else
-      @logbooks = Logbook.all
       erb :'/logbooks/new'
     end
   end
@@ -22,9 +21,8 @@ class LogbooksController < ApplicationController
     if !logged_in?
       redirect '/login'
     else
-      @user = current_user
-      if Logbook.valid_params?(params)
-        Logbook.create(params)
+      @logbook = current_user.logbooks.new(name: params[:name], max_entries: params[:max_entries])
+      if @logbook.save
         redirect "/logbooks/#{@logbook.id}"
       else
         redirect '/logbooks/new'
