@@ -10,9 +10,13 @@
   <center>
     <h1> Welcome, <%= @user.username %> </h1>
     <p>Your User ID: <%= @user.id %><br>
-    <p>Your Logbooks<br>
+    <h2>Your Logbooks<br>
+    <% counter = 0 %>
     <% @user.logbooks.each do |logbook| %>
-      <p><%= logbook.name %>
+      <h3><%= counter += 1 %></h3>
+      <p>Name: <%= logbook.name %>
+      <p>Max Entries: <%= logbook.max_entries %><br>
+      <a href="/logbooks/edit"><input type="submit" value="Edit Logbook"></a>
     <% end %><br><br>
     <a href="/logbooks/new"><input type="submit" value="Create New Logbook"></a>
   </center>

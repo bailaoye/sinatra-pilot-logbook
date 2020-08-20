@@ -39,7 +39,7 @@ class LogbooksController < ApplicationController
       if @user.id == @logbook.user_id
         erb :'/logbooks/show'
       else
-        redirect '/logout'
+        erb :'/redirects/notauthorized'
       end
     end
   end
@@ -53,7 +53,7 @@ class LogbooksController < ApplicationController
       if @user.id == @logbook.user_id
         erb :'/logbooks/edit'
       else
-        redirect '/logout'
+        erb :'/redirects/notauthorized'
       end
     end
   end
