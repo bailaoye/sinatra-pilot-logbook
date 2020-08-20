@@ -9,6 +9,7 @@
 <div>
   <center>
     <h1> Welcome, <%= @user.username %> </h1>
+    <p>Your User ID: <%= @user.id %><br>
     <p>Your Logbooks<br>
     <% @user.logbooks.each do |logbook| %>
       <ul>

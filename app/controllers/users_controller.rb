@@ -16,9 +16,10 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if !logged_in?
-      erb :'/users/signup'
+      erb :'users/signup'
     else
-      erb :'/users/show'
+      @user = current_user
+      erb :'users/show'
     end
   end
 
@@ -46,14 +47,14 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       erb :'users/show'
     else
-      erb :'users/failure'
+      erb :'redirects/failure'
     end
   end
 
   get '/logout' do
     if session[:user_id] != nil
       session.destroy
-      erb :'users/loggedout'
+      erb :'redirects/loggedout'
     else
       redirect to '/'
     end
