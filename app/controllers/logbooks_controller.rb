@@ -1,7 +1,7 @@
 class LogbooksController < ApplicationController
   get '/logbooks' do
     if !logged_in?
-      redirect '/login'
+      erb :'/redirects/notauthorized'
     else
       @user = current_user
       @logbooks = Logbook.all.select {|logbook| logbook.user_id = @user.id}
@@ -11,7 +11,7 @@ class LogbooksController < ApplicationController
 
   get '/logbooks/new' do
     if !logged_in?
-      redirect '/login'
+      erb :'/redirects/notauthorized'
     else
       erb :'/logbooks/new'
     end
@@ -19,7 +19,7 @@ class LogbooksController < ApplicationController
 
   post '/logbooks' do
     if !logged_in?
-      redirect '/login'
+      erb :'/redirects/notauthorized'
     else
       @logbook = current_user.logbooks.new(name: params[:name], max_entries: params[:max_entries])
       if @logbook.save
@@ -32,7 +32,7 @@ class LogbooksController < ApplicationController
 
   get '/logbooks/:id' do
     if !logged_in?
-      redirect '/login'
+      erb :'/redirects/notauthorized'
     else
       @logbook = Logbook.find_by_id(params[:id])
       @user = current_user
@@ -46,7 +46,7 @@ class LogbooksController < ApplicationController
 
   get '/logbooks/:id/edit' do
     if !logged_in?
-      redirect '/login'
+      erb :'/redirects/notauthorized'
     else
       @logbook = Logbook.find_by_id(params[:id])
       @user = current_user
@@ -60,7 +60,7 @@ class LogbooksController < ApplicationController
 
   patch '/logbooks/:id' do
     if !logged_in?
-      redirect '/login'
+      erb :'/redirects/notauthorized'
     else
       @user = current_user
       @logbook = Logbook.find_by_id(params[:id])
@@ -78,7 +78,7 @@ class LogbooksController < ApplicationController
       @logbook.delete
       redirect '/users/show'
     else
-      redirect '/logout'
+      erb :'/redirects/notauthorized'
     end
   end
 end
