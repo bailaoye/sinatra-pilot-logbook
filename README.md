@@ -10,13 +10,13 @@ Welcome to Sinatra Pilot Logbook, a simple tool to help you go paperless in keep
 
     $ bundle install
 
-3. Run:
+3. Run the following commands:
 
     $ rake db:migrate
     
     $ shotgun
 
-4. Navigate to the local address provided
+4. Navigate to the local address provided (default - 127.0.0.1:9393)
 
 ## Contributing
 

@@ -24,6 +24,8 @@
       Destination: <%= log_entry.destination %><br>
       Number of Landings: <%= log_entry.landings %><br>
       Remarks: <%= log_entry.remarks %><br>
+      Logbook ID: <%log_entry.logbook_id %><br>
+
       <input type="submit" value="Update">
       <a href="/log_entries/<%=log_entry.id%>/edit"><input type="submit" value="Edit"></a>
       <a href="/log_entries/<%= log_entry.id%>"><input type="submit" value="View"></a>

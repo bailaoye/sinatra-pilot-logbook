@@ -17,7 +17,8 @@
       <li><a href="/log_entries/<%=entry.id%>"><%= entry.name %></a></li>
     <% end%>
     </ul>
-    <a href="/logbooks/<%=@logbook.id%>/edit">Edit</a>
+    <a href="/logbooks/<%=@logbook.id%>/edit"><input type="submit" value="Edit Logbook"></a>
+    <a href="/log_entries/new"><input type="submit" value="Create Log Entry"></a>
     <br />
     <br />
   </center>
