@@ -14,11 +14,10 @@
     <h2>Log Entries</h2>
     <ul>
     <% @logbook.log_entries.each do |entry| %>
-      <li><a href="/log_entries/<%=entry.id%>"><%= entry.name %></a></li>
+      <li><a href="/log_entries/<%=log_entry.id%>"><%= entry.name %></a></li>
     <% end%>
     </ul>
     <a href="/logbooks/<%=@logbook.id%>/edit"><input type="submit" value="Edit Logbook"></a>
-    <a href="/log_entries/new"><input type="submit" value="Create Log Entry"></a>
     <br />
     <br />
   </center>

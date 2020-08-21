@@ -10,6 +10,13 @@
   <h1>Add a New Entry</h1>
 
   <form action="/log_entries" method="POST">
+    <label> Select Logbook </label>
+    <select name="logbook_id" id="logbook_id">
+      <%current_user.logbooks.each do |logbook|%>
+        <option value="<%=logbook.id%>"><%=logbook.name%></option>
+      <%end%>
+    </select></br>
+
     <label> Date </label>
     <input type="date" name="date"> </br>
 

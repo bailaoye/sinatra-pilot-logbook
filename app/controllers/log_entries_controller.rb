@@ -8,6 +8,20 @@ class LogEntriesController < ApplicationController
     end
   end
 
+  post "/log_entries" do
+    if !logged_in?
+      erb :'/redirects/notauthorized'
+    else
+      @log_entry = LogEntry.create(params)
+      @log_entry.logbook_id = Logbook.find(@log_entry.logbook_id)
+      if @log_entry.save
+        redirect "/log_entries/#{@log_entry.id}"
+      else
+        redirect "/log_entries/new"
+      end
+    end
+  end
+
   get "/log_entries/new" do
     if !logged_in?
       erb :'/redirects/notauthorized'
@@ -15,6 +29,7 @@ class LogEntriesController < ApplicationController
       erb :'log_entries/new'
     end
   end
+  
 
   get '/log_entries/:id' do
     if !logged_in?
@@ -43,11 +58,4 @@ class LogEntriesController < ApplicationController
     redirect to '/log_entries/#{@entry.id}'
   end
 
-  post "/log_entries" do
-    unless LogEntry.valid_params?(params)
-      redirect to '/log_entries/new'
-    end
-    LogEntry.create(params)
-    redirect to "/log_entries"
-  end
 end

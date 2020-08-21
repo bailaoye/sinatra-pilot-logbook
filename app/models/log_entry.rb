@@ -1,5 +1,6 @@
 class LogEntry < ActiveRecord::Base
   belongs_to :logbook
+  attr_accessor :logbook_name
 
   #validate input
   def self.valid_params?(params)
