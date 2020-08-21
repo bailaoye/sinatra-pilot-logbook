@@ -9,7 +9,9 @@
 <center>
   <h1>Edit <%= @logbook.name %></h1>
 
-  <form action="/logbooks/<%=@logbook.id %>/edit" method="POST">
+  <form action="/logbooks/<%=@logbook.id%>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+
     <label> Logbook Name </label>
     <input type="text" name="name" value="<%=@logbook.name %>"> </br>
 

@@ -67,13 +67,13 @@ class LogbooksController < ApplicationController
       @logbook.name = params[:name]
       @logbook.max_entries = params[:max_entries]
       @logbook.save
-      redirect '/logbooks/#{@logbook.id}'
+      redirect "/logbooks/#{@logbook.id}"
     end
   end
 
   delete '/logbooks/:id' do
     @logbook = Logbook.find_by_id(params[:id])
-    @user = current_user # may change to use authorized? method
+    @user = current_user
     if @user.id == @logbook.user_id
       @logbook.delete
       redirect '/users/show'

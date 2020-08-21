@@ -16,7 +16,8 @@
       <h3><%= counter += 1 %></h3>
       <p>Name: <%= logbook.name %>
       <p>Max Entries: <%= logbook.max_entries %><br>
-      <a href="/logbooks/edit"><input type="submit" value="Edit Logbook"></a>
+      <a href="/logbooks/<%=logbook.id%>/edit"><input type="submit" value="Edit Logbook"></a>
+      <a href="/logbooks/<%= logbook.id%>"><input type="submit" value="View Logbook"></a>
     <% end %><br><br>
     <a href="/logbooks/new"><input type="submit" value="Create New Logbook"></a>
   </center>

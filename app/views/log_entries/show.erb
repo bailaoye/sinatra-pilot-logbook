@@ -5,3 +5,19 @@
 <div align="right">
   <a href="/logout"><input type="submit" value="Logout"></a>
 </div>
+
+<div>
+  <center>
+    Date: <%= log_entry.date %><br>
+    Pilot In Command: <%= log_entry.pilot_in_command %><br>
+    Aircraft Type: <%= log_entry.aircraft_type %><br>
+    Aircraft Rego: <%= log_entry.aircraft_rego %><br>
+    Origin: <%= log_entry.origin %><br>
+    Destination: <%= log_entry.destination %><br>
+    Number of Landings: <%= log_entry.landings %><br>
+    Remarks: <%= log_entry.remarks %><br>
+    <a href="/logbooks/<%=@logbook.id%>/edit">Edit</a>
+    <br />
+    <br />
+  </center>
+</div>
