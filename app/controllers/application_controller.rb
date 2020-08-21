@@ -23,15 +23,11 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      !!session[:user_id]
+      !!current_user
     end
 
     def current_user
-      User.find(session[:user_id])
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end      
-
-    def authorized?(logbook)
-      current_user.id == logbook.user_id
-    end
   end
 end 

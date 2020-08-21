@@ -12,9 +12,18 @@ class LogEntriesController < ApplicationController
     if !logged_in?
       erb :'/redirects/notauthorized'
     else
-      @log_entry = LogEntry.create(params)
-      @log_entry.logbook_id = Logbook.find(@log_entry.logbook_id)
-      if @log_entry.save
+      @log_entry = LogEntry.create(
+        logbook: Logbook.find_or_create_by(name: params[:name]),
+        date: params[:date],
+        pilot_in_command: params[:pilot_in_command],
+        aircraft_type: params[:aircraft_type],
+        aircraft_rego: params[:aircraft_rego],
+        origin: params[:origin],
+        destination: params[:destination],
+        landings: params[:landings],
+        remarks: params[:remarks]
+        )
+      if @log_entry.save && @log_entry.logbook.valid?
         redirect "/log_entries/#{@log_entry.id}"
       else
         redirect "/log_entries/new"

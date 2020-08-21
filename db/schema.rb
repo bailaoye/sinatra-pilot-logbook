@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2020_08_16_172411) do
 
   create_table "log_entries", force: :cascade do |t|
     t.integer "logbook_id"
-    t.string "logbook_name"
     t.date "date"
     t.string "pilot_in_command"
     t.string "aircraft_type"
