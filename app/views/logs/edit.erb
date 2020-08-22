@@ -34,12 +34,13 @@
     <input type="text" name="landings" value="<%=@log.landings %>"> </br>
 
     <label> Remarks </label>
-    <input type="text" name="remarks" value="<%=@log.remarks %>"> </br>
-
-    <input type="submit" value="Update">
-    <form action="/logs/<%=@log.id%>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete">
-    </form>
+    <input type="text" name="remarks" value="<%=@log.remarks %>"> </br> 
+  
+    <br>
+    <input type="submit" value="Update Entry">
+  </form>
+  <form action="/logs/<%=@log.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Entry">
   </form>
 </center>

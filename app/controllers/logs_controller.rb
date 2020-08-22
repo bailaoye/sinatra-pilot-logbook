@@ -1,14 +1,4 @@
 class LogsController < ApplicationController
-  get '/logs' do
-    if !logged_in?
-      erb :'/redirects/notauthorized'
-    else
-      @user = current_user
-      @logs = Log.all
-      erb :'/logs/index'
-    end
-  end
-
   get '/logs/new' do
     if !logged_in?
       erb :'/redirects/notauthorized'
