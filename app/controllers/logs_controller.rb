@@ -4,7 +4,7 @@ class LogsController < ApplicationController
       erb :'/redirects/notauthorized'
     else
       @user = current_user
-      @logs = Log.all.select {|log| log.user_id = @user.id}
+      @logs = Log.all
       erb :'/logs/index'
     end
   end
@@ -21,7 +21,16 @@ class LogsController < ApplicationController
     if !logged_in?
       erb :'/redirects/notauthorized'
     else
-      @log = current_user.logs.new(date: params[:date], pilot_in_command: params[:pilot_in_command], aircraft_type: params[:aircraft_type], aircraft_rego: params[:aircraft_rego], origin: params[:origin], destination: params[:destination], landings: params[:landings], remarks: params[:remarks])
+      @log = current_user.logs.new(
+        date: params[:date], 
+        pilot_in_command: params[:pilot_in_command], 
+        aircraft_type: params[:aircraft_type], 
+        aircraft_rego: params[:aircraft_rego], 
+        origin: params[:origin], 
+        destination: params[:destination], 
+        landings: params[:landings], 
+        remarks: params[:remarks]
+        )
       if @log.save
         redirect "/logs/#{@log.id}"
       else
@@ -82,7 +91,7 @@ class LogsController < ApplicationController
     @user = current_user
     if @user.id == @log.user_id
       @log.delete
-      redirect '/users/show'
+      erb :'/users/show'
     else
       erb :'/redirects/notauthorized'
     end

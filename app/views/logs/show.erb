@@ -8,7 +8,7 @@
 
 <div>
   <center>
-    <h3>Successfully created log entry</h3>
+    <h2>Successfully created log entry</h2>
     Date: <%= @log.date %><br />
     Pilot in Command: <%= @log.pilot_in_command %><br />
     Aircraft Type: <%= @log.aircraft_type %><br />
@@ -18,9 +18,9 @@
     Landings: <%= @log.landings %><br />
     Remarks: <%= @log.remarks %><br />
 
-    </ul>
+    <br>
     <a href="/logs/<%=@log.id%>/edit"><input type="submit" value="Edit Log Entry"></a>
-    <a href="/users/show/<%=@log.user_id%"><input type="submit" value="Back to Profile"></a>
+    <a href="/users/<%=@user.id%>"><input type="submit" value="Back to Profile"></a>
     <br />
     <br />
   </center>
