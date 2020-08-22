@@ -64,8 +64,14 @@ class LogsController < ApplicationController
     else
       @user = current_user
       @log = Log.find_by_id(params[:id])
-      @log.name = params[:name]
-      @log.max_entries = params[:max_entries]
+      @log.date = params[:date]
+      @log.pilot_in_command = params[:pilot_in_command]
+      @log.aircraft_type = params[:aircraft_type]
+      @log.aircraft_rego = params[:aircraft_rego]
+      @log.origin = params[:origin]
+      @log.destination = params[:destination]
+      @log.landings = params[:landings]
+      @log.remarks = params[:remarks]
       @log.save
       redirect "/logs/#{@log.id}"
     end
