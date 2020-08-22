@@ -1,7 +1,6 @@
 require './config/environment'
 require './app/models/user'
-require './app/models/logbook'
-require './app/models/log_entry'
+require './app/models/log'
 
 
 class ApplicationController < Sinatra::Base

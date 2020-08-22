@@ -7,7 +7,6 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
 end
 
 use Rack::MethodOverride
-use LogEntriesController
-use LogbooksController  
+use LogsController  
 use UsersController
 run ApplicationController

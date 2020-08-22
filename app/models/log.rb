@@ -1,5 +1,4 @@
-class Logbook < ActiveRecord::Base
-  has_many :log_entries
+class Log < ActiveRecord::Base
   belongs_to :user
 
   #validate input

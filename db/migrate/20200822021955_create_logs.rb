@@ -1,7 +1,7 @@
-class CreateLogEntries < ActiveRecord::Migration[6.0]
+class CreateLogs < ActiveRecord::Migration[6.0]
   def change
-    create_table :log_entries do |t|
-      t.belongs_to :logbook
+    create_table :logs do |t|
+      t.belongs_to :user
       t.date :date
       t.string :pilot_in_command
       t.string :aircraft_type

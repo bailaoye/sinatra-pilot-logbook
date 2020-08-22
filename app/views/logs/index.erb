@@ -1,3 +1,5 @@
+#FOR DEBUGGING, REMOVE THIS VIEW BEFORE FINALIZING
+
 <div align="right">
   <a href="/"><input type="submit" value="Home"></a>
 </div>
@@ -6,14 +8,15 @@
   <a href="/logout"><input type="submit" value="Logout"></a>
 </div>
 
-<div>
-  <center>
-    <h1> Welcome, <%= @user.username %> </h1>
-    <p>Your User ID: <%= @user.id %><br>
-    <h2>Your Log Entries<br>
+<center>
+  <h1>All Logs</h1>
+
+  <a href="/logs/new"><input type="submit" value="Create New Log"></a>
+
+  <div>
     <% counter = 0 %>
-    <% @user.logs.each do |log| %>
-      <h3><%= counter += 1 %></h3>
+    <% @logs.each do |log| %><br>
+      <h4><%= counter += 1 %></h4>
       Date: <%= log.date %><br>
       Pilot in Command: <%= log.pilot_in_command %><br>
       Aircraft Type: <%= log.aircraft_type %><br>
@@ -23,9 +26,9 @@
       Landings: <%= log.landings %><br>
       Remarks: <%= log.remarks %><br>
 
-      <a href="/logs/<%=log.id%>/edit"><input type="submit" value="Edit Log"></a>
-      <a href="/logs/<%= log.id%>"><input type="submit" value="View Log"></a>
-    <% end %><br><br>
-    <a href="/logs/new"><input type="submit" value="Create New Log"></a>
-  </center>
-<div>
+      <a href="/logs/<%=log.id%>/edit"><input type="submit" value="Edit"></a>
+      <a href="/logs/<%= log.id%>"><input type="submit" value="View"></a>
+      <br>
+    <% end %>
+  </div>
+</center>

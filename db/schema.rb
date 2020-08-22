@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_16_172411) do
+ActiveRecord::Schema.define(version: 2020_08_22_021955) do
 
-  create_table "log_entries", force: :cascade do |t|
-    t.integer "logbook_id"
+  create_table "logs", force: :cascade do |t|
+    t.integer "user_id"
     t.date "date"
     t.string "pilot_in_command"
     t.string "aircraft_type"
@@ -22,14 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_172411) do
     t.string "destination"
     t.integer "landings"
     t.string "remarks"
-    t.index ["logbook_id"], name: "index_log_entries_on_logbook_id"
-  end
-
-  create_table "logbooks", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "name"
-    t.integer "max_entries"
-    t.index ["user_id"], name: "index_logbooks_on_user_id"
+    t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

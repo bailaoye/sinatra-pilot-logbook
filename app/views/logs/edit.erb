@@ -12,11 +12,11 @@
   <form action="/logbooks/<%=@logbook.id%>" method="POST">
     <input type="hidden" name="_method" value="PATCH">
 
-    <label> Logbook Name </label>
-    <input type="text" name="name" value="<%=@logbook.name %>"> </br>
+    <label> Date </label>
+    <input type="date" name="date" value="<%=@log.date %>"> </br>
 
-    <label> Maximum Number of Entries </label>
-    <input type="number" name="max_entries" value="<%=@logbook.max_entries %>"> </br>
+    <label> Pilot in Command </label>
+    <input type="text" name="pilot_in_command" value="<%=@log.pilot_in_command %>"> </br>
 
     <input type="submit" value="Update">
   </form>
