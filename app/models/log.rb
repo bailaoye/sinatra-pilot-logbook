@@ -3,6 +3,6 @@ class Log < ActiveRecord::Base
 
   #validate input
   def self.valid_params?(params)
-    return !params[:name].empty? && !params[:max_entries].empty?
+    return !params[:name].empty? && !params[:username].empty?
   end
 end
