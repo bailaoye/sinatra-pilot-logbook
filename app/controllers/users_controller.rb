@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if !@user.nil? && @user == current_user
       erb :'users/show'
     else
-      redirect '/'
+      erb :'redirects/notauthorized'
     end
   end
 
