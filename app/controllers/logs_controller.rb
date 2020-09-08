@@ -3,7 +3,7 @@ class LogsController < ApplicationController
     if !logged_in?
       erb :'/redirects/notauthorized'
     else
-      erb :'/logs/new'
+      redirect '/logs/new'
     end
   end
 
