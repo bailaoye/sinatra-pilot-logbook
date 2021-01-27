@@ -3,7 +3,7 @@ class LogsController < ApplicationController
     if !logged_in?
       erb :'/redirects/notauthorized'
     else
-      redirect '/logs/new'
+      erb :'/logs/new'
     end
   end
 
@@ -11,16 +11,7 @@ class LogsController < ApplicationController
     if !logged_in?
       erb :'/redirects/notauthorized'
     else
-      @log = current_user.logs.new(
-        date: params[:date], 
-        pilot_in_command: params[:pilot_in_command], 
-        aircraft_type: params[:aircraft_type], 
-        aircraft_rego: params[:aircraft_rego], 
-        origin: params[:origin], 
-        destination: params[:destination], 
-        landings: params[:landings], 
-        remarks: params[:remarks]
-        )
+      @log = current_user.logs.new(params[:log])
       if @log.save
         redirect "/logs/#{@log.id}"
       else
@@ -85,5 +76,10 @@ class LogsController < ApplicationController
     else
       erb :'/redirects/notauthorized'
     end
+  end
+
+  get '/landings/:number' do
+    @logs = Log.where(landings: params[:number])
+    erb :'/landings'
   end
 end

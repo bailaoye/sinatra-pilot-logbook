@@ -1,0 +1,6 @@
+<h1>Logs with <%= params[:number] %> Landings</h1>
+<% @logs.each do |log| %>
+  <h3>Log ID: <%= log.id %></h3>
+  <p>Date <%= log.date %></p>
+  <p>PIC: <%= log.pilot_in_command %></p>
+<% end %>
