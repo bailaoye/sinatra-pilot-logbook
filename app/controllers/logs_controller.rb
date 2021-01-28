@@ -28,7 +28,7 @@ class LogsController < ApplicationController
     else
       @log = Log.find(params[:id])
       if current_user.id == @log.user_id
-        redirect "/logs/#{@log.id}"
+        erb :'/logs/show'
       else
         erb :'/redirects/notauthorized'
       end

@@ -4,7 +4,7 @@
   <h2>Your Log Entries<br>
   <% counter = 0 %>
   <% @user.logs.each do |log| %>
-    <h3><%= counter += 1 %></h3>
+    <h3><a href="/logs/<%=log.id%>"><%= counter += 1 %></h3></a>
     Date: <%= log.date %><br>
     Pilot in Command: <%= log.pilot_in_command %><br>
     Aircraft Type: <%= log.aircraft_type %><br>
