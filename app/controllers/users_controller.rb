@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'users/signup'
     else
-      redirect to "/users/#{current_user.id}"
+      redirect to "/users/#{current_user.slug}"
     end
   end
 
@@ -19,13 +19,13 @@ class UsersController < ApplicationController
   end
 
   #show action
-  get '/users/:id' do
+  get '/users/:slug' do
     #redirect if not logged in
     if !logged_in?
       redirect '/login'
     end
     #if user credentials valid, show user page
-    @user = User.find(params[:id])
+    @user = User.find_by_slug(params[:slug])
     if !@user.nil? && @user == current_user
       erb :'users/show'
     else
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'users/login'
     else
-      redirect to "/users/#{current_user.id}"
+      redirect to "/users/#{current_user.slug}"
     end
   end
 
