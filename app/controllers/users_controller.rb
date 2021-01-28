@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     #if user credentials valid, show user page
     @user = User.find_by_slug(params[:slug])
     if !@user.nil? && @user == current_user
-      redirect "/users/#{current_user.slug}"
+      erb :'/users/show'
     else
       erb :'/redirects/notauthorized'
     end
