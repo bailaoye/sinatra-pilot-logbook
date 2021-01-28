@@ -2,13 +2,13 @@
 
 <form action="/logs" method="POST">
   <label> Date </label>
-  <input type="date" name="log[date]"> </br>
+  <input type="date" name="log[date]" value="<%= Date.today %>"> </br>
 
   <label> Pilot in Command </label>
-  <input type="text" name="log[pilot_in_command" value="<%= current_user.fullname %>"> </br>
+  <input type="text" name="log[pilot_in_command]" value="<%= current_user.fullname %>"> </br>
 
   <label> Aircraft Type </label>
-  <input type="text" name="log[aircraft_type"> </br>
+  <input type="text" name="log[aircraft_type]"> </br>
   
   <label> Aircraft Rego </label>
   <input type="text" name="log[aircraft_rego]"> </br>
