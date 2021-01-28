@@ -2,7 +2,7 @@ class LogsController < ApplicationController
   #new action
   get '/logs/new' do
     if !logged_in?
-      redirect '/redirects/notauthorized'
+      erb :'/redirects/notauthorized'
     else
       erb :'/logs/new'
     end
@@ -10,13 +10,13 @@ class LogsController < ApplicationController
 
   post '/logs' do
     if !logged_in?
-      redirect '/redirects/notauthorized'
+      erb :'/redirects/notauthorized'
     else
       @log = current_user.logs.new(params[:log])
       if @log.save
         redirect "/logs/#{@log.id}"
       else
-        erb :'/logs/new'
+        redirect '/logs/new'
       end
     end
   end
@@ -24,14 +24,14 @@ class LogsController < ApplicationController
   #show action
   get '/logs/:id' do
     if !logged_in?
-      redirect '/redirects/notauthorized'
+      erb :'/redirects/notauthorized'
     else
       @log = Log.find_by_id(params[:id])
       @user = current_user
       if @user.id == @log.user_id
         erb :'/logs/show'
       else
-        redirect '/redirects/notauthorized'
+        erb :'/redirects/notauthorized'
       end
     end
   end
@@ -39,14 +39,14 @@ class LogsController < ApplicationController
   #edit action
   get '/logs/:id/edit' do
     if !logged_in?
-      redirect '/redirects/notauthorized'
+      erb :'/redirects/notauthorized'
     else
       @log = Log.find_by_id(params[:id])
       @user = current_user
       if @user.id == @log.user_id
         erb :'/logs/edit'
       else
-        redirect '/redirects/notauthorized'
+        erb :'/redirects/notauthorized'
       end
     end
   end
@@ -70,7 +70,7 @@ class LogsController < ApplicationController
       @log.delete
       erb :'/users/show'
     else
-      redirect '/redirects/notauthorized'
+      erb :'/redirects/notauthorized'
     end
   end
 
