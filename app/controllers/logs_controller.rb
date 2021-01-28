@@ -1,4 +1,5 @@
 class LogsController < ApplicationController
+  #new action
   get '/logs/new' do
     if !logged_in?
       erb :'/redirects/notauthorized'
@@ -20,6 +21,7 @@ class LogsController < ApplicationController
     end
   end
 
+  #show action
   get '/logs/:id' do
     if !logged_in?
       erb :'/redirects/notauthorized'
@@ -34,6 +36,7 @@ class LogsController < ApplicationController
     end
   end
 
+  #edit action
   get '/logs/:id/edit' do
     if !logged_in?
       erb :'/redirects/notauthorized'
@@ -58,7 +61,8 @@ class LogsController < ApplicationController
       redirect "/logs/#{@log.id}"
     end
   end
-
+  
+  #delete action
   delete '/logs/:id' do
     @log = Log.find_by_id(params[:id])
     @user = current_user
@@ -70,8 +74,10 @@ class LogsController < ApplicationController
     end
   end
 
+  #show all landings with :number on a page
   get '/landings/:number' do
     @logs = Log.where(landings: params[:number])
     erb :'/landings'
   end
+  
 end

@@ -1,5 +1,24 @@
 class UsersController < ApplicationController 
+  #signup (new) action
+  get '/signup' do
+    if !logged_in?
+      erb :'users/signup'
+    else
+      redirect to "/users/#{current_user.id}"
+    end
+  end
 
+  post '/signup' do 
+    if params[:username] == "" || params[:password] == ""
+      redirect to '/users/signup'
+    else
+      @user = User.create(params[:user])
+      session[:user_id] = @user.id
+      erb :'users/show'
+    end
+  end
+
+  #show action
   get '/users/:id' do
     #redirect if not logged in
     if !logged_in?
@@ -14,14 +33,7 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/signup' do
-    if !logged_in?
-      erb :'users/signup'
-    else
-      redirect to "/users/#{current_user.id}"
-    end
-  end
-
+  #login action
   get '/login' do 
     if !logged_in?
       erb :'users/login'
@@ -40,23 +52,13 @@ class UsersController < ApplicationController
     end
   end
 
+  #logout (delete) action
   get '/logout' do
-    if session[:user_id] != nil
+    if session[:user_id]
       session.destroy
       erb :'redirects/loggedout'
     else
       redirect to '/'
-    end
-  end
-
-
-  post '/signup' do 
-    if params[:username] == "" || params[:password] == ""
-      redirect to '/users/signup'
-    else
-      @user = User.create(params[:user])
-      session[:user_id] = @user.id
-      erb :'users/show'
     end
   end
 
