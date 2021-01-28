@@ -1,38 +1,36 @@
-<center>
-  <h1>Edit Log Entry</h1>
+<h1>Edit Log Entry</h1>
 
-  <form action="/logs/<%=@log.id%>" method="POST">
-    <input type="hidden" name="_method" value="PATCH">
+<form action="/logs/<%=@log.id%>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
 
-    <label> Date </label>
-    <input type="date" name="log[date]" value="<%=@log.date %>"> </br>
+  <label> Date </label>
+  <input type="date" name="log[date]" value="<%=@log.date %>"> </br>
 
-    <label> Pilot in Command </label>
-    <input type="text" name="log[pilot_in_command]" value="<%=@log.pilot_in_command %>"> </br>
-    
-    <label> Aircraft Type </label>
-    <input type="text" name="log[aircraft_type]" value="<%=@log.aircraft_type %>"> </br>
-
-    <label> Aircraft Registration </label>
-    <input type="text" name="log[aircraft_rego]" value="<%=@log.aircraft_rego %>"> </br>
-
-    <label> Origin </label>
-    <input type="text" name="log[origin]" value="<%=@log.origin %>"> </br>
-
-    <label> Destination </label>
-    <input type="text" name="log[destination]" value="<%=@log.destination %>"> </br>
-
-    <label> Number of Landings </label>
-    <input type="text" name="log[landings]" value="<%=@log.landings %>"> </br>
-
-    <label> Remarks </label>
-    <input type="text" name="log[remarks]" value="<%=@log.remarks %>"> </br> 
+  <label> Pilot in Command </label>
+  <input type="text" name="log[pilot_in_command]" value="<%=@log.pilot_in_command %>"> </br>
   
-    <br>
-    <input type="submit" value="Update Entry">
-  </form>
-  <form action="/logs/<%=@log.id%>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Entry">
-  </form>
-</center>
+  <label> Aircraft Type </label>
+  <input type="text" name="log[aircraft_type]" value="<%=@log.aircraft_type %>"> </br>
+
+  <label> Aircraft Registration </label>
+  <input type="text" name="log[aircraft_rego]" value="<%=@log.aircraft_rego %>"> </br>
+
+  <label> Origin </label>
+  <input type="text" name="log[origin]" value="<%=@log.origin %>"> </br>
+
+  <label> Destination </label>
+  <input type="text" name="log[destination]" value="<%=@log.destination %>"> </br>
+
+  <label> Number of Landings </label>
+  <input type="text" name="log[landings]" value="<%=@log.landings %>"> </br>
+
+  <label> Remarks </label>
+  <input type="text" name="log[remarks]" value="<%=@log.remarks %>"> </br> 
+
+  <br>
+  <input type="submit" value="Update Entry">
+</form>
+<form action="/logs/<%=@log.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Entry">
+</form>

@@ -4,14 +4,16 @@
     <title>Sinatra Pilot Logbook</title>
   </head>
   <body>
-    <div align="right">
-      <a href="/"><input type="submit" value="Home"></a>
-    </div>
-    
-    <div align="right">
-      <a href="/logout"><input type="submit" value="Logout"></a>
-    </div>
-    <h5>You're currently logged in as: <%= current_user.username if current_user %></h5>
-    <%= yield %>
+    <center>
+      <div align="right">
+        <a href="/"><input type="submit" value="Home"></a>
+      </div>
+      
+      <div align="right">
+        <a href="/logout"><input type="submit" value="Logout"></a>
+      </div>
+      <h5>You're currently logged in as: <%= current_user.username if current_user %></h5>
+      <%= yield %>
+    </center>
   </body>
 </html>

@@ -1,22 +1,20 @@
 <div>
-  <center>
-    <h1> Welcome, <%= @user.fullname %> </h1>
-    <p>Your User ID: <%= @user.id %><br>
-    <h2>Your Log Entries<br>
-    <% counter = 0 %>
-    <% @user.logs.each do |log| %>
-      <h3><%= counter += 1 %></h3>
-      Date: <%= log.date %><br>
-      Pilot in Command: <%= log.pilot_in_command %><br>
-      Aircraft Type: <%= log.aircraft_type %><br>
-      Aircraft Rego: <%= log.aircraft_rego %><br>
-      Origin: <%= log.origin %><br>
-      Destination: <%= log.destination %><br>
-      Landings: <%= log.landings %><br>
-      Remarks: <%= log.remarks %><br>
+  <h1> Welcome, <%= @user.fullname %> </h1>
+  <p>Your User ID: <%= @user.id %><br>
+  <h2>Your Log Entries<br>
+  <% counter = 0 %>
+  <% @user.logs.each do |log| %>
+    <h3><%= counter += 1 %></h3>
+    Date: <%= log.date %><br>
+    Pilot in Command: <%= log.pilot_in_command %><br>
+    Aircraft Type: <%= log.aircraft_type %><br>
+    Aircraft Rego: <%= log.aircraft_rego %><br>
+    Origin: <%= log.origin %><br>
+    Destination: <%= log.destination %><br>
+    Landings: <%= log.landings %><br>
+    Remarks: <%= log.remarks %><br>
 
-      <a href="/logs/<%=log.id%>/edit"><input type="submit" value="Edit Log"></a>
-    <% end %><br><br>
-    <a href="/logs/new"><input type="submit" value="Create New Log"></a>
-  </center>
+    <a href="/logs/<%=log.id%>/edit"><input type="submit" value="Edit Log"></a>
+  <% end %><br><br>
+  <a href="/logs/new"><input type="submit" value="Create New Log"></a>
 <div>

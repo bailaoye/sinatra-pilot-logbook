@@ -1,19 +1,17 @@
 <div>
-  <center>
-    <h2>Successfully created log entry</h2>
-    Date: <%= @log.date %><br />
-    Pilot in Command: <%= @log.pilot_in_command %><br />
-    Aircraft Type: <%= @log.aircraft_type %><br />
-    Aircraft Rego: <%= @log.aircraft_rego %><br />
-    Origin: <%= @log.origin %><br />
-    Destination: <%= @log.destination %><br />
-    Landings: <%= @log.landings %><br />
-    Remarks: <%= @log.remarks %><br />
+  <h2>Successfully created log entry</h2>
+  Date: <%= @log.date %><br />
+  Pilot in Command: <%= @log.pilot_in_command %><br />
+  Aircraft Type: <%= @log.aircraft_type %><br />
+  Aircraft Rego: <%= @log.aircraft_rego %><br />
+  Origin: <%= @log.origin %><br />
+  Destination: <%= @log.destination %><br />
+  Landings: <%= @log.landings %><br />
+  Remarks: <%= @log.remarks %><br />
 
-    <br>
-    <a href="/logs/<%=@log.id%>/edit"><input type="submit" value="Edit Log Entry"></a>
-    <a href="/users/<%=@user.id%>"><input type="submit" value="Back to Profile"></a>
-    <br />
-    <br />
-  </center>
+  <br>
+  <a href="/logs/<%=@log.id%>/edit"><input type="submit" value="Edit Log Entry"></a>
+  <a href="/users/<%=@user.id%>"><input type="submit" value="Back to Profile"></a>
+  <br />
+  <br />
 </div>
