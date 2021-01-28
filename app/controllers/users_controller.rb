@@ -2,19 +2,19 @@ class UsersController < ApplicationController
   #signup (new) action
   get '/signup' do
     if !logged_in?
-      erb :'users/signup'
+      erb :'/users/signup'
     else
-      redirect to "/users/#{current_user.slug}"
+      redirect "/users/#{current_user.slug}"
     end
   end
 
   post '/signup' do 
     if params[:username] == "" || params[:password] == ""
-      redirect to '/users/signup'
+      redirect '/users/signup'
     else
       @user = User.create(params[:user])
       session[:user_id] = @user.id
-      erb :'users/show'
+      redirect "/users/#{current_user.slug}"
     end
   end
 
@@ -27,18 +27,18 @@ class UsersController < ApplicationController
     #if user credentials valid, show user page
     @user = User.find_by_slug(params[:slug])
     if !@user.nil? && @user == current_user
-      erb :'users/show'
+      redirect "/users/#{current_user.slug}"
     else
-      erb :'redirects/notauthorized'
+      erb :'/redirects/notauthorized'
     end
   end
 
   #login action
   get '/login' do 
     if !logged_in?
-      erb :'users/login'
+      erb :'/users/login'
     else
-      redirect to "/users/#{current_user.slug}"
+      redirect "/users/#{current_user.slug}"
     end
   end
 
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/#{current_user.slug}"
     else
-      erb :'redirects/failure'
+      erb :'/redirects/failure'
     end
   end
 
@@ -56,9 +56,9 @@ class UsersController < ApplicationController
   get '/logout' do
     if session[:user_id]
       session.destroy
-      erb :'redirects/loggedout'
+      erb :'/redirects/loggedout'
     else
-      redirect to '/'
+      redirect '/'
     end
   end
 
